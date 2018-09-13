@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
         scheme: 'file',
         language: 'javascript'
     }, new Completion());
-    vscode.window.showInformationMessage('Hello World!');
+    vscode.window.showInformationMessage('OK!');
 
     context.subscriptions.push(completion);
 }
