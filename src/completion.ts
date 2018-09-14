@@ -10,7 +10,11 @@ export class Completion implements vscode.CompletionItemProvider {
         Object.keys(methods).map((method_name) => {
             let completionItem = new vscode.CompletionItem(method_name);
             completionItem.kind = vscode.CompletionItemKind.Snippet;
-            completionItem.insertText = new vscode.SnippetString(methods[method_name].snippet);
+
+            // 将数组改为字符串后作为insertText
+            const snippet = methods[method_name].snippet.join('\n');
+
+            completionItem.insertText = new vscode.SnippetString(snippet);
             completionItem.detail = methods[method_name].description;
             completionItems.push(completionItem);
         });
