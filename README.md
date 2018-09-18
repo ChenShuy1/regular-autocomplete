@@ -1,20 +1,29 @@
 # regular-autocomplete README
 
-This is the README for your extension "regular-autocomplete". After writing up a brief description, we recommend including the following sections.
+Regular自动补全插件，支持regular语法的自动补全。
 
-## Features
+## Snippets
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+- `rgc ->` regular component skeleton
+- `list ->` regular list
+- `if ->` regular if
+- `include ->` regular include statement
+- `data ->` this.data
+- `update ->` this.$update()
+- `watch ->`this.$watch()
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+由于regular的模板是基于字符串的，因此大部分的补全在字符串内执行。  
+需要在设置(`User Setting`)中：
+```
+"editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+}
+```
+打开对`strings`补全的支持。
 
 ## Extension Settings
 
