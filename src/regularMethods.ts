@@ -42,6 +42,29 @@ const methods:any = {
         snippet: ["{#include ${1:template}}"],
         description: "regular Include Statement",
         type: "Snippet"
+    },
+    // 属性值补全
+    data: {
+        name: "data",
+        snippet: ["this.data"],
+        description: "this.data",
+        type: "Snippet"
+    },
+    update: {
+        name: 'update',
+        snippet: ["this.\\$update()"],
+        description: "this.$update",
+        type: "Snippet"
+    },
+    watch: {
+        name: "watch",
+        snippet: [
+            "this\.\\$watch(\"${1:property}\", function() {",
+            "\t",
+            "});"
+        ],
+        description: "this.$watch",
+        type: "Snippet"
     }
 };
 
