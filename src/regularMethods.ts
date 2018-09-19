@@ -5,7 +5,7 @@ const methods:any = {
             "const tpl = `\n`;",
             "\n",
             "const ${1:componentName} = Regular.extend({",
-            "\tname: \"${1}\",",
+            "\tname: \'${1}\',",
             "\ttemplate: tpl,",
             "\tconfig(data) {}",
             "});",
@@ -20,7 +20,7 @@ const methods:any = {
         snippet: [
             "{#list ${1:list} as ${2:item} by $2_index}",
             "\t$0",
-            "{\\list}"
+            "{/list}"
         ],
         description: "regular For Loop",
         type: "Snippet"
@@ -29,10 +29,32 @@ const methods:any = {
         name: "if",
         snippet:  [
             "{#if ${1:condition}}",
-            "\t$2",
-            "{#elseif ${3: condition}}",
             "\t$0",
-            "{\\if}"
+            "{/if}"
+        ],
+        description: "regular IF Statement",
+        type: "Snippet"
+    },
+    ifelse: {
+        name: "if",
+        snippet:  [
+            "{#if ${1:condition}}",
+            "\t$2",
+            "{#else}",
+            "\t$0",
+            "{/if}"
+        ],
+        description: "regular IF Statement",
+        type: "Snippet"
+    },
+    ifelseif: {
+        name: "if",
+        snippet:  [
+            "{#if ${1:condition1}}",
+            "\t$2",
+            "{#elseif ${3: condition2}}",
+            "\t$0",
+            "{/if}"
         ],
         description: "regular IF Statement",
         type: "Snippet"
@@ -59,7 +81,7 @@ const methods:any = {
     watch: {
         name: "watch",
         snippet: [
-            "this\.\\$watch(\"${1:property}\", function() {",
+            "this\.\\$watch(\'${1:property}\', function() {",
             "\t",
             "});"
         ],
