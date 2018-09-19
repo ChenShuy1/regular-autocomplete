@@ -17,6 +17,7 @@
     "author": {
         "name": "chenshuyi"
     },
+    "icon": "image/icon.png",
     "activationEvents": [
         "onLanguage:javascript"
     ],

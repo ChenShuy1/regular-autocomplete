@@ -7,6 +7,8 @@ Regular自动补全插件，支持regular语法的自动补全。
 - `rgc ->` regular component skeleton
 - `list ->` regular list
 - `if ->` regular if
+- `ifelse ->` regular if else
+- `ifelseif ->` regular if elseif
 - `include ->` regular include statement
 - `data ->` this.data
 - `update ->` this.$update()
