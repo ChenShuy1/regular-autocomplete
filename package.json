@@ -4,16 +4,19 @@
     "description": "the autocomplete of regular",
     "version": "0.0.1",
     "publisher": "chenshuyi",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/chenshy39/regular-autocomplete.git"
     },
-    "engines": {
-        "vscode": "^1.27.0"
-    },
     "categories": [
         "Other"
     ],
+    "author": {
+        "name": "chenshuyi"
+    },
     "activationEvents": [
         "onLanguage:javascript"
     ],
