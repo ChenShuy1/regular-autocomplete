@@ -23,7 +23,8 @@ const methods:any = {
             "{/list}"
         ],
         description: "regular For Loop",
-        type: "Snippet"
+        type: "Snippet",
+        languageSport: 'all'
     },
     if: {
         name: "if",
@@ -33,10 +34,11 @@ const methods:any = {
             "{/if}"
         ],
         description: "regular IF Statement",
-        type: "Snippet"
+        type: "Snippet",
+        languageSport: 'all'
     },
     ifelse: {
-        name: "if",
+        name: "ifelse",
         snippet:  [
             "{#if ${1:condition}}",
             "\t$2",
@@ -45,10 +47,11 @@ const methods:any = {
             "{/if}"
         ],
         description: "regular IF Statement",
-        type: "Snippet"
+        type: "Snippet",
+        languageSport: 'all'
     },
     ifelseif: {
-        name: "if",
+        name: "ifelseif",
         snippet:  [
             "{#if ${1:condition1}}",
             "\t$2",
@@ -57,13 +60,15 @@ const methods:any = {
             "{/if}"
         ],
         description: "regular IF Statement",
-        type: "Snippet"
+        type: "Snippet",
+        languageSport: 'all'
     },
     include: {
         name: "include",
         snippet: ["{#include ${1:template}}"],
         description: "regular Include Statement",
-        type: "Snippet"
+        type: "Snippet",
+        languageSport: 'all'
     },
     // 属性值补全
     data: {
@@ -74,18 +79,26 @@ const methods:any = {
     },
     update: {
         name: 'update',
-        snippet: ["this.\\$update()"],
+        snippet: ["this.\\$update();"],
         description: "this.$update",
         type: "Snippet"
     },
     watch: {
         name: "watch",
         snippet: [
-            "this\.\\$watch(\'${1:property}\', function() {",
+            "this\.\\$watch(\'${1:property}\', function(newVal, oldVal) {",
             "\t",
             "});"
         ],
         description: "this.$watch",
+        type: "Snippet"
+    },
+    refs: {
+        name: "refs",
+        snippet: [
+            "this\.\\$refs"
+        ],
+        description: "this.$refs",
         type: "Snippet"
     }
 };

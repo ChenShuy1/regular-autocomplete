@@ -2,7 +2,7 @@
     "name": "regular-autocomplete",
     "displayName": "regular-autocomplete",
     "description": "the autocomplete of regular",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "chenshuyi",
     "engines": {
         "vscode": "^1.27.0"
@@ -19,7 +19,7 @@
     },
     "icon": "image/icon.png",
     "activationEvents": [
-        "onLanguage:javascript"
+        "onLanguage:html"
     ],
     "main": "./out/extension",
     "scripts": {

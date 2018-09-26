@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import methods from './regularMethods';
 
-export class Completion implements vscode.CompletionItemProvider {
+export class CompletionJS implements vscode.CompletionItemProvider {
 
     public provideCompletionItems(document:vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.CompletionItem[] {
         let completionItems:vscode.CompletionItem[] = [];
