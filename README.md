@@ -38,4 +38,13 @@ Regular自动补全插件，支持regular语法的自动补全。
 ```
 配置`tpl`后缀文件到`html`的关联
 
+### 更新日志
+`v0.0.2`  
+- 修复regular语法错误
+- 添加`watch`、`update`等支持
+
+`v0.0.3`  
+- 添加`$refs`支持
+- 支持html后缀文件唤起regular-autocomplete插件
+
 **Enjoy!**
