@@ -2,7 +2,7 @@
     "name": "regular-autocomplete",
     "displayName": "regular-autocomplete",
     "description": "the autocomplete of regular",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "chenshuyi",
     "engines": {
         "vscode": "^1.27.0"
