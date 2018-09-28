@@ -19,7 +19,8 @@
     },
     "icon": "image/icon.png",
     "activationEvents": [
-        "onLanguage:html"
+        "onLanguage:html",
+        "onLanguage:javascript"
     ],
     "main": "./out/extension",
     "scripts": {
