@@ -33,7 +33,6 @@ export class CompletionJS implements vscode.CompletionItemProvider {
             const lineText = document.lineAt(position.line).text;
             const isRefs = lineText.match(/\$refs/g);
             if(isRefs) {
-                console.log('yes');
                 return this.getRefs(document.getText());
             }
         }
