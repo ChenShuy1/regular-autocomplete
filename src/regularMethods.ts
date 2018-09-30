@@ -13,7 +13,8 @@ const methods:any = {
             "export default ${1};"
         ],
         description: "regular component",
-        type: "Snippet"
+        type: "Snippet",
+        kind: 1, // methods
     },
     list: {
         name: "list",
@@ -24,7 +25,8 @@ const methods:any = {
         ],
         description: "regular For Loop",
         type: "Snippet",
-        languageSport: 'all'
+        kind: 13, // keyword
+        languageSport: 'all',
     },
     if: {
         name: "if",
@@ -35,6 +37,7 @@ const methods:any = {
         ],
         description: "regular IF Statement",
         type: "Snippet",
+        kind: 13,
         languageSport: 'all'
     },
     ifelse: {
@@ -48,6 +51,7 @@ const methods:any = {
         ],
         description: "regular IF Statement",
         type: "Snippet",
+        keyword: 13,
         languageSport: 'all'
     },
     ifelseif: {
@@ -61,6 +65,7 @@ const methods:any = {
         ],
         description: "regular IF Statement",
         type: "Snippet",
+        keyword: 13,
         languageSport: 'all'
     },
     include: {
@@ -75,13 +80,15 @@ const methods:any = {
         name: "data",
         snippet: ["this.data"],
         description: "this.data",
-        type: "Snippet"
+        type: "Snippet",
+        kind: 9, // property
     },
     update: {
         name: 'update',
         snippet: ["this.\\$update();"],
         description: "this.$update",
-        type: "Snippet"
+        type: "Snippet",
+        kind: 1,
     },
     watch: {
         name: "watch",
@@ -91,7 +98,8 @@ const methods:any = {
             "});"
         ],
         description: "this.$watch",
-        type: "Snippet"
+        type: "Snippet",
+        kind: 1,
     },
     refs: {
         name: "refs",
@@ -99,7 +107,8 @@ const methods:any = {
             "this\.\\$refs"
         ],
         description: "this.$refs",
-        type: "Snippet"
+        type: "Snippet",
+        kind: 1,
     }
 };
 

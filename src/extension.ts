@@ -4,6 +4,7 @@
 import * as vscode from 'vscode';
 import { CompletionJS } from './completionJS';
 import { CompletionHTML } from './completionHTML';
+import { CompletionMethods } from './completionMethods';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -19,7 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
     let completionJS = vscode.languages.registerCompletionItemProvider({
         scheme: 'file',
         language: 'javascript'
-    }, new CompletionJS());
+    }, new CompletionJS(), '.');
     let completionHTML = vscode.languages.registerCompletionItemProvider({
         scheme: 'file',
         language: 'html'
@@ -28,6 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(completionJS);
     context.subscriptions.push(completionHTML);
+    // context.subscriptions.push(completionMethods);
 }
 
 // this method is called when your extension is deactivated
