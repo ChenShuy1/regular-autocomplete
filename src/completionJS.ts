@@ -2,8 +2,11 @@ import * as vscode from 'vscode';
 import methods from './regularMethods';
 
 export class CompletionJS implements vscode.CompletionItemProvider {
-    private getFunction(content: String) {
-        const regExp = /(\w+)\(.*\){/;
+    private getFunction(content: string) {
+        const regExp = /(\w+)\(.*\){/g;
+        const result = regExp.exec(content);
+        console.log(result);
+        
     }
     
     public provideCompletionItems(document:vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] {

@@ -4,8 +4,6 @@
 import * as vscode from 'vscode';
 import { CompletionJS } from './completionJS';
 import { CompletionHTML } from './completionHTML';
-import { CompletionMethods } from './completionMethods';
-
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
