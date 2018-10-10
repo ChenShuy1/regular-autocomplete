@@ -7,9 +7,7 @@ export class CompletionJS implements vscode.CompletionItemProvider {
         const regExp = /ref\s*=\s*\"*(\w+)\"*\s*/g;
         
         let result;
-        while((result = regExp.exec(content)) != null) {
-            console.log(result);
-            
+        while((result = regExp.exec(content)) !== null) {
             const funcName = result[1];
             
             let completionItem = new vscode.CompletionItem(funcName, vscode.CompletionItemKind.Function);
@@ -23,12 +21,8 @@ export class CompletionJS implements vscode.CompletionItemProvider {
     
     public provideCompletionItems(document:vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] {
         let completionItems:vscode.CompletionItem[] = [];
-        console.log('range', document.lineAt(position.line).text);
-
         const triggerCharacter = context.triggerCharacter;
         // 触发条件为.时
-        // console.log(context);
-        
         if (triggerCharacter === '.') {
             const lineText = document.lineAt(position.line).text;
             const isRefs = lineText.match(/\$refs/g);
