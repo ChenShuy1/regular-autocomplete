@@ -48,7 +48,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 - 添加`$refs`支持
 - 支持html后缀文件唤起regular-autocomplete插件
 
-`v0.0.4`  
+`v0.0.5`  
 - 添加对refs的补全支持
 - 添加`emit`支持
 
