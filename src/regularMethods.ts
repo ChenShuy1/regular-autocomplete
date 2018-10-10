@@ -1,3 +1,14 @@
+/**
+ * regular方法补全文件，每一个方法对应一个补全内容
+ * 其中：
+ * name: 方法名
+ * snippet: 具体补全内容
+ * description: 补全框内的提示描述
+ * type: 提示类型
+ * kind: 补全类型，1方法，9属性，13关键字
+ * languageSport（可选）: 'all'，表示同时在多种类型文件触发补全
+ */
+
 const methods:any = {
     rglc: {
         name: "regularcomponent",

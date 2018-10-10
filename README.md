@@ -13,6 +13,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 - `data ->` this.data
 - `update ->` this.$update()
 - `watch ->`this.$watch()
+- `watch ->`this.$emit()
 
 ## Requirements
 
@@ -46,5 +47,9 @@ Regular自动补全插件，支持regular语法的自动补全。
 `v0.0.3`  
 - 添加`$refs`支持
 - 支持html后缀文件唤起regular-autocomplete插件
+
+`v0.0.4`  
+- 添加对refs的补全支持
+- 添加`emit`支持
 
 **Enjoy!**
