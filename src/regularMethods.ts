@@ -101,6 +101,15 @@ const methods:any = {
         type: "Snippet",
         kind: 1,
     },
+    emit: {
+        name: "emit",
+        snippet: [
+            "this\.\\$emit(\'${1:eventName}\', { ${2:payload} });",
+        ],
+        description: "this.$emit",
+        type: "Snippet",
+        kind: 1,
+    },
     refs: {
         name: "refs",
         snippet: [
