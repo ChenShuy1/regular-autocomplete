@@ -15,6 +15,10 @@ Regular自动补全插件，支持regular语法的自动补全。
 - `watch ->`this.$watch()
 - `watch ->`this.$emit()
 
+## Method completion
+支持js文件内使用`this.`进行方法的补全操作
+
+
 ## Requirements
 
 ### 开启字符串补全
@@ -51,5 +55,4 @@ Regular自动补全插件，支持regular语法的自动补全。
 `v0.0.5`  
 - 添加对refs的补全支持
 - 添加`emit`支持
-
 **Enjoy!**
