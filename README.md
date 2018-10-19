@@ -17,7 +17,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 
 ## Method completion
 支持js文件内使用`this.`进行方法的补全操作
-
+![image](https://github.com/chenshy39/regular-autocomplete/blob/master/illustration/this-completion.gif)
 
 ## Requirements
 
