@@ -58,6 +58,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 
 `v0.1.0`  
 - 增加对单个js文件的this补全
-- 
+- 增加对模版文件的this补全支持  
+⚠️ 当前对模版的this补全支持仅限于同名文件，比如`test.js`的模版文件对应`test.html/tpl`  
 
 **Enjoy!**
