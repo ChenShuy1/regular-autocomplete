@@ -16,7 +16,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 - `watch ->`this.$emit()
 
 ## Method completion
-支持js文件内使用`this.`进行方法的补全操作
+- 支持js文件内使用`this.`进行方法的补全操作
 ![image](https://github.com/chenshy39/regular-autocomplete/blob/master/illustration/this-completion.gif)
 
 ## Requirements
@@ -54,5 +54,10 @@ Regular自动补全插件，支持regular语法的自动补全。
 
 `v0.0.5`  
 - 添加对refs的补全支持
-- 添加`emit`支持
+- 添加`emit`支持  
+
+`v0.1.0`  
+- 增加对单个js文件的this补全
+- 
+
 **Enjoy!**
