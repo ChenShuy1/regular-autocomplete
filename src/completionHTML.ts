@@ -2,7 +2,6 @@
 import methods from './regularMethods';
 
 export class CompletionHTML implements vscode.CompletionItemProvider {
-    private editingFileName = '';
 
     private getMethods(content: string) {
         const completionItems:vscode.CompletionItem[] = [];
@@ -28,7 +27,6 @@ export class CompletionHTML implements vscode.CompletionItemProvider {
 
     public provideCompletionItems(document:vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] {
         let completionItems:vscode.CompletionItem[] = [];
-
         const triggerCharacter = context.triggerCharacter;
         // 触发条件为.时
         if (triggerCharacter === '.') {
@@ -40,8 +38,9 @@ export class CompletionHTML implements vscode.CompletionItemProvider {
             //  获取对应的js文件
             vscode.workspace.openTextDocument(`${activeFileName}.js`).then((files) => {
                 const text = files.getText();
-                return this.getMethods(text);
+                completionItems = this.getMethods(text);
             });
+            return completionItems;
         } else {
             // 循环读取regular中的所有方法(snippet)并添加到CompletionItem中
             Object.keys(methods).map((method_name) => {
@@ -60,10 +59,5 @@ export class CompletionHTML implements vscode.CompletionItemProvider {
         }
 
         return completionItems;
-    }
-
-    public setEditingFileName(name: string):void {
-        this.editingFileName = name;
-        return;
     }
 }
