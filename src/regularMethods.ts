@@ -104,7 +104,7 @@ const methods:any = {
     watch: {
         name: "watch",
         snippet: [
-            "this\.\\$watch(\'${1:property}\', function(newVal, oldVal) {",
+            "this\.\\$watch(\'${1:property}\', (newVal, oldVal) => {",
             "\t",
             "});"
         ],

@@ -4,16 +4,17 @@ Regular自动补全插件，支持regular语法的自动补全。
 
 ## Snippets
 
-- `rgc ->` regular component skeleton
-- `list ->` regular list
-- `if ->` regular if
-- `ifelse ->` regular if else
-- `ifelseif ->` regular if elseif
-- `include ->` regular include statement
-- `data ->` this.data
-- `update ->` this.$update()
-- `watch ->`this.$watch()
-- `watch ->`this.$emit()
+| 语法  | 生成内容 | 效果 |
+| -------: | ------- | ---- |
+| `rglc→`   | regular component skeleton | 略 
+| `list→`   | regular list | {#list}
+| `if→`  | regular if | {#if}
+| `ifelse→`  | regular if else | {#if} {#else} {/if}
+| `ifelseif→`  | regular if else if | {#if} {#elseif} {/if}
+| `include→`  | regular include statement | {#include}
+| `update→`  | regular update | this.$update()
+| `watch→`  | regular watch | this.$watch()
+| `emit→`  | regular emit | this.$emit()
 
 ## Method completion
 - 支持js文件内使用`this.`进行方法的补全操作
@@ -21,7 +22,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 
 ## Requirements
 
-### 开启字符串补全
+### ✅ 开启字符串补全
 由于regular的模板是基于字符串的，因此大部分的补全在字符串内执行。  
 需要在设置(`User Setting`)中：
 ```
@@ -33,7 +34,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 ```
 打开对`strings`补全的支持。
 
-### 模板文件补全支持  
+### ✅ 模板文件补全支持  
 由于vscode内置语言中不支持`tpl`为后缀作为language，因此需要用户自定义关联`tpl`为`html`。  
 需要在设置(`User Setting`)中：
 ```
@@ -60,5 +61,9 @@ Regular自动补全插件，支持regular语法的自动补全。
 - 增加对单个js文件的this补全
 - 增加对模版文件的this补全支持  
 ⚠️ 当前对模版的this补全支持仅限于同名文件，比如`test.js`的模版文件对应`test.html/tpl`  
+
+`v0.1.1`
+- 将watch修改为箭头函数
+- 完善readme
 
 **Enjoy!**
