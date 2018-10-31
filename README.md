@@ -17,8 +17,8 @@ Regular自动补全插件，支持regular语法的自动补全。
 | `emit→`  | regular emit | this.$emit()
 
 ## Method completion
-- 支持js文件内使用`this.`进行方法的补全操作
-![this补全操作](image/this-completion.gif)
+- 支持js文件内使用`this.`进行方法的补全操作  
+![this补全操作](image/this.gif)
 
 ## Requirements
 
@@ -65,5 +65,8 @@ Regular自动补全插件，支持regular语法的自动补全。
 `v0.1.1`
 - 将watch修改为箭头函数
 - 完善readme
+
+`v0.1.2`
+- this补全带参数
 
 **Enjoy!**
