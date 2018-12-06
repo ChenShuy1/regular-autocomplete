@@ -1,0 +1,160 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "regulartemplate",
+	"patterns": [
+        {
+            "include": "#htmlbracket"
+        },
+        {
+            "include": "text.html.basic"
+        },
+        {
+            "match": "</[a-zA-Z]+>",
+            "name": "constant.language"
+        },
+        {
+            "include": "#bracket"
+        },
+        {
+            "include": "#comments"
+        }
+	],
+	"repository": {
+        "bracket": {
+            "name": "markup.heading",
+            "begin": "{",
+            "end": "}",
+            "patterns": [{
+                "name": "keyword.control",
+                "match": "#\\b(if|elseif|list|include|as|by)\\b"
+            }, {
+                "name": "keyword.control",
+                "match": "/(if|list)"
+            }, {
+                "name": "keyword.control",
+                "match": "(as|by)"
+            }, {
+                "name": "keyword.operator",
+                "match": "\\s(>|<|>=|<=|[=]{1,3})\\s"
+            }, {
+                "name": "variable.name",
+                "match": "\\$?[a-zA-Z0-9_\\.]+"
+            }, {
+                "name": "string.quoted.double",
+                "begin": "'",
+                "end": "'"
+            }, {
+                "name": "string.quoted.interpolated",
+                "begin": "`",
+                "end": "`",
+                "patterns": [{
+                    "name": "markup.heading",
+                    "begin": "\\${",
+                    "end": "}",
+                    "patterns": [{
+                        "name": "variable.parameter",
+                        "match": "\\w+"
+                    }]
+                }]
+            }, {
+                "name": "keyword.control",
+                "begin": "(\\{)",
+                "end": "(\\})",
+                "beginCaptures": {
+                    "1": {
+                        "name": "keyword.operator"
+                    }
+                },
+                "endCaptures": {
+                    "1": {
+                        "name": "keyword.operator"
+                    }
+                },
+                "patterns":[{
+                    "name": "variable.name",
+                    "match": "[a-zA-Z0-9_\\.]+"
+                }, {
+                    "name": "entity.name.function",
+                    "match": "([a-zA-Z0-9_\\.]+)\\((.*?)\\)"
+                }]
+            }]
+        },
+        "htmlbracket": {
+            "begin": "</?[a-zA-Z]+",
+            "end": "\\s?>",
+            "beginCaptures": {
+                "0" : {
+                    "name": "constant.language"
+                }
+            },
+            "endCaptures": {
+                "0" : {
+                    "name": "constant.language"
+                }
+            },
+            "patterns": [{
+                "name": "string",
+                "begin": "\"",
+                "end": "\"",
+                "patterns": [{
+                    "name": "keyword.control",
+                    "match": "\\b(each|if|else|set|block|extend|include)\\b"
+                }, {
+                    "name": "keyword.control",
+                    "match": "/(if|each|block)"
+                }, {
+                    "name": "markup.heading",
+                    "match": "{{|}}"
+                }, {
+                    "name": "keyword.operator",
+                    "match": "\\s(>|<|>=|<=|[=]{1,3})\\s"
+                }, {
+                    "name": "support.class",
+                    "match": "\\s(\\?|\\|\\||\\||\\+|:|@|&&)\\s"
+                }, {
+                    "name": "variable.name",
+                    "match": "\\$[a-zA-Z0-9_\\.]+"
+                }, {
+                    "name": "string.quoted.double",
+                    "begin": "'",
+                    "end": "'"
+                }, {
+                    "name": "keyword.operator",
+                    "match": "\\[|\\]"
+                }]
+            }, {
+                "name": "markup.heading",
+                "match": "{{|}}"
+            }, {
+                "name": "keyword.control",
+                "match": "\\b(each|if|else|set|block|extend|include)\\b"
+            }, {
+                "name": "keyword.control",
+                "match": "/(if|each|block)"
+            }, {
+                "name": "keyword.operator",
+                "match": "\\s(>|<|>=|<=|[=]{1,3})\\s"
+            }, {
+                "name": "support.class",
+                "match": "\\s(\\?|\\|\\||\\||\\+|:|@|&&)\\s"
+            }, {
+                "name": "variable.name",
+                "match": "\\$?[a-zA-Z0-9_\\.]+"
+            }, {
+                "name": "string.quoted.double",
+                "begin": "'",
+                "end": "'"
+            }, {
+                "name": "keyword.operator",
+                "match": "\\[|\\]"
+            }]
+        },
+        "comments": {
+            "patterns": [{
+                "name": "comment.line.double-slash",
+                "match": "\/\/[^\n]*"
+            }]
+        }
+	},
+	"scopeName": "text.html.regular"
+}

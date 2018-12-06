@@ -1,0 +1,49 @@
+{
+    "List": {
+        "prefix": "list",
+        "body": [
+            "{#list ${1:list} as ${2:item} by $2_index}",
+            "\t$0",
+            "{/list}"
+        ],
+        "description": "regular list"
+    },
+    "If": {
+        "prefix": "if",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t$0",
+            "{/if}"
+        ],
+        "description": "regular if"
+    },
+    "If Else": {
+        "prefix": "ifelse",
+        "body": [
+            "{#if ${1:condition}}",
+            "\t$2",
+            "{#else}",
+            "\t$0",
+            "{/if}"
+        ],
+        "description": "regular if else"
+    },
+    "If Else If": {
+        "prefix": "ifelseif",
+        "body": [
+            "{#if ${1:condition1}}",
+            "\t$2",
+            "{#elseif ${3: condition2}}",
+            "\t$0",
+            "{/if}"
+        ],
+        "description": "regular if else if"
+    },
+    "Include": {
+        "prefix": "include",
+        "body": [
+            "{#include ${1:template}}"
+        ],
+        "description": "regular include statement"
+    }
+}

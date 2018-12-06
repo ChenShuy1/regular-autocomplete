@@ -22,6 +22,28 @@
         "onLanguage:html",
         "onLanguage:javascript"
     ],
+    "contributes": {
+        "languages": [{
+            "id": "regulartemplate",
+            "aliases": ["rgl"],
+            "extensions": [".rgl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "regulartemplate",
+            "scopeName": "text.html.regular",
+            "path": "./syntaxes/regular.tmLanguage.json"
+        }],
+        "snippets": [
+            {
+                "language": "regulartemplate",
+                "path": "./snippets/regular.json"
+            }
+        ],
+        "capabilities": {
+            "documentHighlightProvider" : "true"
+        }
+    },
     "main": "./out/extension",
     "scripts": {
         "vscode:prepublish": "npm run compile",

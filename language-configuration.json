@@ -1,0 +1,44 @@
+/*
+    If your language configuration file name is or ends with 
+    language-configuration.json, 
+    you will get validation and editing support in VS Code.
+*/
+{
+    // 定义注释符号
+    "comments": {
+        "lineComment": "//",
+        "blockComment": [ "/*", "*/" ]
+    },
+    // 定义括号符，编辑器根据这个去识别使用这个括号后换行要空格
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+    // 定义自动关闭对
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+        { "open": "/**", "close": " */", "notIn": ["string"] }
+    ],
+    // 定义选择一个字符串后输入下面的符号可包裹住字符串
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["<", ">"],
+        ["'", "'"]
+    ],
+    // 定义代码如何被折叠
+    "folding": {
+        "offSide": false, // 代码前的空行属于下一个折叠部分（适用于基于缩进的语言比如python）
+        "markers": { // 自定义可折叠的区域
+            "start": "^\\s*<\\w+?>",
+            "end": "^\\s*</\\w+>"
+        }
+    },
+    // 定义被识别为word的正则表达式
+    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
+}
