@@ -5,8 +5,6 @@ import * as vscode from 'vscode';
 import { CompletionJS } from './completionJS';
 import { CompletionHTML } from './completionHTML';
 
-let completionHTML:any = null;
-
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -18,7 +16,7 @@ export function activate(context: vscode.ExtensionContext) {
         scheme: 'file',
         language: 'javascript'
     }, new CompletionJS(), '.');
-    completionHTML = vscode.languages.registerCompletionItemProvider({
+    let completionHTML = vscode.languages.registerCompletionItemProvider({
         scheme: 'file',
         language: 'html'
     }, new CompletionHTML(), '.');

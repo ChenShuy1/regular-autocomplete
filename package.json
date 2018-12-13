@@ -2,7 +2,7 @@
     "name": "regular-autocomplete",
     "displayName": "regular-autocomplete",
     "description": "the autocomplete of regular",
-    "version": "0.1.2",
+    "version": "0.2.0",
     "publisher": "chenshuyi",
     "engines": {
         "vscode": "^1.25.0"
@@ -37,7 +37,19 @@
         "snippets": [
             {
                 "language": "regulartemplate",
-                "path": "./snippets/regular.json"
+                "path": "./snippets/regular-template.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/regular-template.json"
+            },
+            {
+                "language": "javascript",
+                "path": "./snippets/regular-methods.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/regular-template.json"
             }
         ],
         "capabilities": {

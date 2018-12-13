@@ -1,5 +1,4 @@
-    import * as vscode from 'vscode';
-import methods from './regularMethods';
+import * as vscode from 'vscode';
 
 export class CompletionHTML implements vscode.CompletionItemProvider {
 
@@ -33,7 +32,6 @@ export class CompletionHTML implements vscode.CompletionItemProvider {
                     snippet += `\${${index + 1}:${p}},`;
                 }
             });
-            console.log('snippet', snippet);
             
             completionItem.insertText = new vscode.SnippetString(snippet);
             completionItems.push(completionItem);
@@ -43,7 +41,7 @@ export class CompletionHTML implements vscode.CompletionItemProvider {
         return completionItems;
     }
 
-    public provideCompletionItems(document:vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): vscode.CompletionItem[] {
+    public async provideCompletionItems(document:vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken, context: vscode.CompletionContext): Promise<vscode.CompletionItem[]> {
         let completionItems:vscode.CompletionItem[] = [];
         const triggerCharacter = context.triggerCharacter;
         // 触发条件为.时
@@ -54,26 +52,11 @@ export class CompletionHTML implements vscode.CompletionItemProvider {
             activeFileName = activeFileName.substring(0, activeFileName.lastIndexOf('.'));
 
             //  获取对应的js文件
-            vscode.workspace.openTextDocument(`${activeFileName}.js`).then((files) => {
+            await vscode.workspace.openTextDocument(`${activeFileName}.js`).then((files) => {
                 const text = files.getText();
                 completionItems = this.getMethods(text);
             });
             return completionItems;
-        } else {
-            // 循环读取regular中的所有方法(snippet)并添加到CompletionItem中
-            Object.keys(methods).map((method_name) => {
-                if (methods[method_name].languageSport) {
-                    let completionItem = new vscode.CompletionItem(method_name);
-                    completionItem.kind = vscode.CompletionItemKind.Snippet;
-
-                    // 将数组改为字符串后作为insertText
-                    const snippet = methods[method_name].snippet.join('\n');
-
-                    completionItem.insertText = new vscode.SnippetString(snippet);
-                    completionItem.detail = methods[method_name].description;
-                    completionItems.push(completionItem);
-                }
-            });
         }
 
         return completionItems;

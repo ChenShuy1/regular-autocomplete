@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import methods from './regularMethods';
 
 export class CompletionJS implements vscode.CompletionItemProvider {
     private getRefs(content: string) {
@@ -72,19 +71,6 @@ export class CompletionJS implements vscode.CompletionItemProvider {
             if (isThis) {
                 return this.getMethods(document.getText());
             }
-        } else {
-            // 循环读取regular中的所有方法(snippet)并添加到CompletionItem中
-            Object.keys(methods).map((method_name) => {
-                let completionItem = new vscode.CompletionItem(method_name, methods[method_name].kind);
-                // completionItem.kind = vscode.CompletionItemKind.Snippet;
-
-                // 将数组改为字符串后作为insertText
-                const snippet = methods[method_name].snippet.join('\n');
-
-                completionItem.insertText = new vscode.SnippetString(snippet);
-                completionItem.detail = methods[method_name].description;
-                completionItems.push(completionItem);
-            });
         }
 
         return completionItems;

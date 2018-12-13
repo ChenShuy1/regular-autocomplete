@@ -1,0 +1,32 @@
+{
+    "Update": {
+        "prefix": "update",
+        "body": [
+            "this.\\$update();"
+        ],
+        "description": "regular update"
+    },
+    "Watch": {
+        "prefix": "watch",
+        "body": [
+            "this.\\$watch('${1:property}', (newVal, oldVal) => {",
+            "\t",
+            "});"
+        ],
+        "description": "regular watch"
+    },
+    "Emit": {
+        "prefix": "emit",
+        "body": [
+            "this.\\$emit('${1:eventName}', { ${2:payload} });"
+        ],
+        "description": "regular emit"
+    },
+    "Refs": {
+        "prefix": "refs",
+        "body": [
+            "this.\\$refs"
+        ],
+        "description": "regular refs"
+    }
+}
