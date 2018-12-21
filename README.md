@@ -73,4 +73,8 @@ Regular自动补全插件，支持regular语法的自动补全。
 - 将snippets提取出来用配置文件实现
 - 支持.rgl模板文件，支持语法高亮和语法补全
 
+`v0.2.1`
+- 增加rglc补全
+- 增加$parent补全
+
 **Enjoy!**

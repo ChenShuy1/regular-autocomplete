@@ -20,6 +20,13 @@
         ],
         "description": "regular update"
     },
+    "Parent": {
+        "prefix": "parent",
+        "body": [
+            "this.\\$parent();"
+        ],
+        "description": "regular parent"
+    },
     "Watch": {
         "prefix": "watch",
         "body": [
