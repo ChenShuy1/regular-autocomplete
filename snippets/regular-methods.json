@@ -1,4 +1,18 @@
 {
+    "RegularComponent": {
+        "prefix": "rglc",
+        "body": [
+            "import Regular from 'regularjs';",
+            "",
+            "const tpl = ``;",
+            "",
+            "export default Regular.extend({",
+            "\tname: '${1:ComponentName}',",
+            "\tconfig(data) {},",
+            "});"
+        ],
+        "description": "regular component"
+    },
     "Update": {
         "prefix": "update",
         "body": [
