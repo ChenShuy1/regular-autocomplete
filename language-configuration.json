@@ -21,6 +21,7 @@
         ["[", "]"],
         ["(", ")"],
         { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+        { "open": "`", "close": "`", "notIn": ["string", "comment"] },
         { "open": "/**", "close": " */", "notIn": ["string"] }
     ],
     // 定义选择一个字符串后输入下面的符号可包裹住字符串
@@ -29,14 +30,14 @@
         ["[", "]"],
         ["(", ")"],
         ["<", ">"],
-        ["'", "'"]
+        ["'", "'"],
+        ["`", "`"],
     ],
     // 定义代码如何被折叠
     "folding": {
-        "offSide": false, // 代码前的空行属于下一个折叠部分（适用于基于缩进的语言比如python）
-        "markers": { // 自定义可折叠的区域
-            "start": "^\\s*<\\w+?>",
-            "end": "^\\s*</\\w+>"
+        "markers": {
+            "start": "^<(template|style|script)[^>]*>",
+            "end": "^</(template|style|script)>"
         }
     },
     // 定义被识别为word的正则表达式
