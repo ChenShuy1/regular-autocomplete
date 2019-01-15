@@ -1,0 +1,76 @@
+{
+    "scaffold": {
+        "prefix": "scaffold",
+        "body": [
+            "<template>",
+            "\t$0",
+            "</template>",
+            "",
+            "<script>",
+            "export default {",
+            "",
+            "}",
+            "</script>",
+            "<style>",
+            "",
+            "</style>"
+        ],
+        "description": "scaffold <template>, <script> and <style>"
+    },
+    "template": {
+        "prefix": "template",
+        "body": [
+            "<template>",
+            "\t$0",
+            "</template>"
+        ],
+        "description": "template with html"
+    },
+    "script": {
+        "prefix": "script",
+        "body": [
+            "<script>",
+            "export default {",
+            "\t$0",
+            "}",
+            "</script>"
+        ],
+        "description": "script tag"
+    },
+    "styleCss": {
+        "prefix": "style with CSS",
+        "body": [
+            "<style>",
+            "$0",
+            "</style>"
+        ],
+        "description": "css style tag"
+    },
+    "styleCssScope": {
+        "prefix": "style with CSS (scoped)",
+        "body": [
+            "<style scoped>",
+            "$0",
+            "</style>"
+        ],
+        "description": "css style tag scoped"
+    },
+    "styleLess": {
+        "prefix": "style with Less",
+        "body": [
+            "<style lang=\"less\">",
+            "$0",
+            "</style>"
+        ],
+        "description": "less style tag"
+    },
+    "styleLessScoped": {
+        "prefix": "style with Less (scoped)",
+        "body": [
+            "<style lang=\"less\" scoped>",
+            "$0",
+            "</style>"
+        ],
+        "description": "less style tag scoped"
+    }
+}

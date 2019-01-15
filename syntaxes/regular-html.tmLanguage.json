@@ -208,8 +208,12 @@
                     "name": "source.directive.vue"
                 }
             ]
-        }, 
+        },
         "tag-generic-attribute": {
+            "match": "(?<=[^=])\\b([a-zA-Z0-9:\\-_]+)", 
+            "name": "entity.other.attribute-name.html"
+        }, 
+        "tag-valued-attribute": {
             "captures": {
                 "2": {
                     "name": "punctuation.separator.key-value.html"
@@ -368,8 +372,11 @@
                     "include": "#tag-id-attribute"
                 }, 
                 {
+                    "include": "#tag-valued-attribute"
+                },
+                {
                     "include": "#tag-generic-attribute"
-                }, 
+                },
                 {
                     "include": "#string-double-quoted"
                 }, 
@@ -438,8 +445,11 @@
             "name": "meta.tag.preprocessor.xml.html", 
             "patterns": [
                 {
+                    "include": "#tag-valued-attribute"
+                },
+                {
                     "include": "#tag-generic-attribute"
-                }, 
+                },
                 {
                     "include": "#string-double-quoted"
                 }, 

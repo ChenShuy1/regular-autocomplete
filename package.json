@@ -54,6 +54,10 @@
         }],
         "snippets": [
             {
+                "language": "regular",
+                "path": "./snippets/regular.json"
+            },
+            {
                 "language": "regular-html",
                 "path": "./snippets/regular-template.json"
             },
