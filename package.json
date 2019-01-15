@@ -11,6 +11,11 @@
         "type": "git",
         "url": "https://github.com/chenshy39/regular-autocomplete.git"
     },
+    "keywords": [
+        "regular",
+        "regularjs",
+        "regular-autocomplete"
+    ],
     "categories": [
         "Other"
     ],
