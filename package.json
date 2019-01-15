@@ -17,15 +17,15 @@
         "regular-autocomplete"
     ],
     "categories": [
-        "Other"
+        "Programming Languages"
     ],
     "author": {
         "name": "chenshuyi"
     },
     "icon": "image/icon.png",
     "activationEvents": [
-        "onLanguage:html",
-        "onLanguage:javascript"
+        "onLanguage:javascript",
+        "onLanguage:regular"
     ],
     "contributes": {
         "languages": [{
