@@ -1,8 +1,8 @@
 {
-    "name": "regular-autocomplete",
-    "displayName": "regular-autocomplete",
-    "description": "the autocomplete of regular",
-    "version": "0.2.1",
+    "name": "regular",
+    "displayName": "regular-tool",
+    "description": "regular tooling for VS Code",
+    "version": "0.3.0",
     "publisher": "chenshuyi",
     "engines": {
         "vscode": "^1.25.0"

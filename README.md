@@ -1,6 +1,16 @@
-# regular-autocomplete README
+<p>
+  <h1 align="center">Regular Tool</h1>
+</p>
 
-Regular自动补全插件，支持regular语法的自动补全。
+Regular插件工具
+
+## Features
+- Syntax-highlighting
+- Snippets
+- Auto Completion
+
+## Syntax-highlighting
+支持后缀为.rgl文件的语法高亮
 
 ## Snippets
 
@@ -16,7 +26,7 @@ Regular自动补全插件，支持regular语法的自动补全。
 | `watch→`  | regular watch | this.$watch()
 | `emit→`  | regular emit | this.$emit()
 
-## Method completion
+## Auto completion
 - 支持js文件内使用`this.`进行方法的补全操作  
 ![this补全操作](image/this.gif)
 
@@ -43,38 +53,5 @@ Regular自动补全插件，支持regular语法的自动补全。
 }
 ```
 配置`tpl`后缀文件到`html`的关联
-
-### 更新日志
-`v0.0.2`  
-- 修复regular语法错误
-- 添加`watch`、`update`等支持
-
-`v0.0.3`  
-- 添加`$refs`支持
-- 支持html后缀文件唤起regular-autocomplete插件
-
-`v0.0.5`  
-- 添加对refs的补全支持
-- 添加`emit`支持  
-
-`v0.1.0`  
-- 增加对单个js文件的this补全
-- 增加对模版文件的this补全支持  
-⚠️ 当前对模版的this补全支持仅限于同名文件，比如`test.js`的模版文件对应`test.html/tpl`  
-
-`v0.1.1`
-- 将watch修改为箭头函数
-- 完善readme
-
-`v0.1.2`
-- this补全带参数
-
-`v0.2.0`
-- 将snippets提取出来用配置文件实现
-- 支持.rgl模板文件，支持语法高亮和语法补全
-
-`v0.2.1`
-- 增加rglc补全
-- 增加$parent补全
 
 **Enjoy!**
