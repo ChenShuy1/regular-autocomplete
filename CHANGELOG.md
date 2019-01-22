@@ -1,5 +1,10 @@
 # Change Log
 
+### 0.3.1 | 2019-01-22
+- fix: template标签内包含template标签时语法无法高亮问题
+- fix: rgl后缀文件无法提供this方法补全问题
+- 新增html标签内回车增加缩进
+
 ### 0.3.0 | 2019-01-16
 - 更加完善的regular语法补全
 - 增加.rgl文件的template补全
