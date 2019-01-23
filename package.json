@@ -2,7 +2,7 @@
     "name": "regular",
     "displayName": "regular-tool",
     "description": "regular tooling for VS Code",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "publisher": "chenshuyi",
     "engines": {
         "vscode": "^1.25.0"
