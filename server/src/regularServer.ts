@@ -19,5 +19,13 @@ connection.onInitialize((params: InitializeParams) => {
     };
 });
 
+connection.onInitialized(() => {
+	connection.console.log('connection initialized');
+});
+
+connection.onDidChangeConfiguration(change => {
+	connection.console.log('change');
+});
+
 documents.listen(connection);
 connection.listen();
