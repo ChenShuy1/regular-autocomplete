@@ -7,10 +7,14 @@ import { CompletionJS } from './completionJS';
 import { CompletionHTML } from './completionHTML';
 import registerLanguageConfigurations from './languages';
 import initializeClient from './client';
+import {
+	LanguageClient,
+} from 'vscode-languageclient';
+
+let client:LanguageClient;
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
-// hihihihihihrllo
 export function activate(context: vscode.ExtensionContext) {
     registerLanguageConfigurations();
     // The command has been defined in the package.json file
@@ -35,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     const serverModule = context.asAbsolutePath(path.join('server', 'out', 'regularServer.js'));
     
-    const client = initializeClient(serverModule);
+    client = initializeClient(serverModule);
     context.subscriptions.push(client.start());
     vscode.window.showInformationMessage('Regular Extension is Running');
 
@@ -43,4 +47,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 // this method is called when your extension is deactivated
 export function deactivate() {
+    if (!client) {
+        return;
+    }
+    return client.stop();
 }
