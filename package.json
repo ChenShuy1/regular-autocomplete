@@ -28,35 +28,45 @@
         "onLanguage:regular"
     ],
     "contributes": {
-        "languages": [{
-            "id": "regular",
-            "aliases": ["rgl"],
-            "extensions": [".rgl"],
-            "configuration": "./languages/language-configuration.json"
-        }, {
-            "id": "regular-html",
-            "configuration": "./languages/regular-html-language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "regular",
-            "scopeName": "source.regular",
-            "path": "./syntaxes/regular.tmLanguage.json",
-            "embeddedLanguages": {
-                "text.html.basic": "html",
-                "text.html.regular-html": "regular-html",
-                "source.css": "css",
-                "source.css.scss": "scss",
-                "source.css.less": "less",
-                "source.css.postcss": "postcss",
-                "source.sass": "sass",
-                "source.stylus": "stylus",
-                "source.js": "javascript"
+        "languages": [
+            {
+                "id": "regular",
+                "aliases": [
+                    "rgl"
+                ],
+                "extensions": [
+                    ".rgl"
+                ],
+                "configuration": "./languages/language-configuration.json"
+            },
+            {
+                "id": "regular-html",
+                "configuration": "./languages/regular-html-language-configuration.json"
             }
-        }, {
-            "language": "regular-html",
-            "scopeName": "text.html.regular-html",
-            "path": "./syntaxes/regular-html.tmLanguage.json"
-        }],
+        ],
+        "grammars": [
+            {
+                "language": "regular",
+                "scopeName": "source.regular",
+                "path": "./syntaxes/regular.tmLanguage.json",
+                "embeddedLanguages": {
+                    "text.html.basic": "html",
+                    "text.html.regular-html": "regular-html",
+                    "source.css": "css",
+                    "source.css.scss": "scss",
+                    "source.css.less": "less",
+                    "source.css.postcss": "postcss",
+                    "source.sass": "sass",
+                    "source.stylus": "stylus",
+                    "source.js": "javascript"
+                }
+            },
+            {
+                "language": "regular-html",
+                "scopeName": "text.html.regular-html",
+                "path": "./syntaxes/regular-html.tmLanguage.json"
+            }
+        ],
         "snippets": [
             {
                 "language": "regular",
@@ -80,22 +90,21 @@
             }
         ],
         "capabilities": {
-            "documentHighlightProvider" : "true"
+            "documentHighlightProvider": "true"
         }
     },
-    "main": "./out/extension",
+    "main": "./client/out/extension",
     "scripts": {
         "vscode:prepublish": "npm run compile",
-        "compile": "tsc -p ./",
-        "watch": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
+        "compile": "tsc -b",
+        "watch": "tsc -b -w",
+        "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.21",
-        "tslint": "^5.8.0",
-        "@types/node": "^8.10.25",
-        "@types/mocha": "^2.2.42"
+        "@types/mocha": "^5.2.0",
+        "@types/node": "^8.0.0",
+        "tslint": "^5.11.0",
+        "typescript": "^3.1.3"
     }
 }
