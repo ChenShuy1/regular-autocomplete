@@ -29,7 +29,7 @@ export default function initializeClient(rlsModulePath: string):LanguageClient {
 	// Options to control the language client
     let clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
-		documentSelector: ['regular'],
+		documentSelector: ['regular', 'javascript'],
 		synchronize: {
 			configurationSection: ['regular', 'html', 'javascript'],
 			// Notify the server about file changes to '.clientrc files contained in the workspace
