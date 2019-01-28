@@ -29,7 +29,7 @@ export function getRegularMode(): LanguageMode {
                 const completionItems:CompletionItem[] = [];
         
                 // 函数定义正则
-                const funcExp = /(\S+)\((.*)\)\s*{/g;
+                const funcExp = /(\w+)\(\s*([$\w]*)\s*,*\s*\)\s*{/g;
                 
                 let result;
                 while((result = funcExp.exec(document)) !== null) {

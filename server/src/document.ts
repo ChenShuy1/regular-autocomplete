@@ -11,6 +11,8 @@ export class DocumentService {
         return this.documents.get(uri);
     }
 
+    // Make the text document manager listen on the connection
+    // for open, change and close text document events
     listen(connection: IConnection) {
         this.documents.listen(connection);
     }
