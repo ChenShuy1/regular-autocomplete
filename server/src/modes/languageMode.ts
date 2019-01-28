@@ -4,7 +4,7 @@ export interface LanguageMode {
     getId(): string;
     configure?(options: any): void;
     doCompletion?(document: TextDocument, position: Position): CompletionList;
-    doResolve?(document: TextDocument, item: CompletionItem): CompletionItem;
+    doCompletionResolve?(item: CompletionItem): CompletionList;
     onDocumentRemoved(document: TextDocument): void;
     dispose(): void;
 }

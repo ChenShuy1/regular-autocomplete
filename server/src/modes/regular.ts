@@ -6,6 +6,7 @@ import {
     InsertTextFormat
 } from 'vscode-languageserver-types';
 import { NULL_COMPLETION } from "../data";
+import { doComponentComplete } from "../snippets/componentComplete";
 
 const REGULAR_TRIGGER = ['.'];
 
@@ -107,7 +108,7 @@ export function getRegularMode(): LanguageMode {
                     }
                 }
             }
-            return NULL_COMPLETION;
+            return doComponentComplete();
         },
         onDocumentRemoved() {},
         dispose() {}

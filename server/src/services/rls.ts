@@ -19,25 +19,18 @@ export class RLS {
     }
     private setupLanguageFeatures() {
         this.connection.onCompletion(this.onCompletion.bind(this));
-        this.connection.onCompletionResolve(this.onCompletionResolved.bind(this));
+        this.connection.onCompletionResolve(this.onCompletionResolve.bind(this));
     }
     private onCompletion(args): CompletionList {
         const {
             textDocument,
             position
         } = args;
-        const mode = this.languageModes.getMode('regular');
+        const mode = this.languageModes.getMode('regular-html');
         const doc = this.documentService.getDocument(textDocument.uri)!;
         return mode.doCompletion(doc, position);
     }
-    private onCompletionResolved(item: CompletionItem): CompletionItem {
-        if (item.data === 1) {
-            item.detail = 'TypeScript details';
-            item.documentation = 'TypeScript documentation';
-        } else if (item.data === 2) {
-            item.detail = 'JavaScript details';
-            item.documentation = 'JavaScript documentation';
-        }
-        return item;
+    private onCompletionResolve(item: CompletionItem): CompletionList {
+        return NULL_COMPLETION;
     }
 }
