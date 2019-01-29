@@ -1,5 +1,8 @@
 # Change Log
 
+### 0.3.2 | ?
+- fix: less语法无法高亮问题
+
 ### 0.3.1 | 2019-01-23
 - fix: template标签内包含template标签时语法无法高亮问题
 - fix: rgl后缀文件无法提供this方法补全问题

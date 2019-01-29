@@ -1,6 +1,6 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "regulartemplate",
+    "name": "regulartemplate",
 	"patterns": [
         {
             "match": "&", 
@@ -56,6 +56,9 @@
               },
               "2": {
                 "name": "entity.name.tag.script.html"
+              },
+              "3": {
+                "name": "punctuation.definition.tag.end.html"
               }
             },
             "begin": "(<)(script)(?![^/>]*/>\\s*$)",
@@ -92,7 +95,108 @@
               }
             ]
         },
-        
+        {
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.tag.style.html"
+                }, 
+                "1": {
+                    "name": "punctuation.definition.tag.begin.html"
+                }
+            }, 
+            "begin": "(<)(style)\\b(?=[^/>]*/>\\s*$)", 
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.end.html"
+                }
+            }, 
+            "end": "(/>)", 
+            "patterns": [
+                {
+                    "include": "text.html.regular-html#tag-stuff"
+                }
+            ]
+        },
+        {
+            "beginCaptures": {
+                "2": {
+                    "name": "entity.name.tag.style.html"
+                }, 
+                "1": {
+                    "name": "punctuation.definition.tag.begin.html"
+                }
+            }, 
+            "begin": "(<)(style)(?=[^>]*>[^/>]*</style>)", 
+            "endCaptures": {
+                "2": {
+                    "name": "entity.name.tag.style.html"
+                }, 
+                "3": {
+                    "name": "punctuation.definition.tag.end.html"
+                }, 
+                "1": {
+                    "name": "punctuation.definition.tag.begin.html"
+                }
+            }, 
+            "end": "(</)(style)(>)", 
+            "patterns": [
+                {
+                    "include": "text.html.regular-html#tag-stuff"
+                }, 
+                {
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.tag.end.html"
+                        }
+                    }, 
+                    "begin": "(>)", 
+                    "end": "(?=</style>)"
+                }
+            ]
+        },
+        {
+            "beginCaptures": {
+              "1": {
+                "name": "punctuation.definition.tag.begin.html"
+              },
+              "2": {
+                "name": "entity.name.tag.style.html"
+              }
+            },
+            "begin": "(<)(style)\\b(?=[^>]*lang=('less'|\"less\"))(?![^/>]*/>\\s*$)",
+            "endCaptures": {
+              "1": {
+                "name": "punctuation.definition.tag.begin.html"
+              },
+              "2": {
+                "name": "entity.name.tag.style.html"
+              },
+              "3": {
+                "name": "punctuation.definition.tag.end.html"
+              }
+            },
+            "end": "(</)(style)(>)",
+            "patterns": [
+              {
+                "include": "text.html.regular-html#tag-stuff"
+              },
+              {
+                "beginCaptures": {
+                  "1": {
+                    "name": "punctuation.definition.tag.end.html"
+                  }
+                },
+                "begin": "(>)",
+                "end": "(?=</style>)",
+                "patterns": [
+                    {
+                        "include": "source.css.less"
+                    }
+                ],
+                "contentName": "source.css.less"
+              }
+            ]
+        },
         {
             "beginCaptures": {
               "1": {
@@ -135,186 +239,15 @@
                 "contentName": "source.css"
               }
             ]
-        },
-        {
-            "beginCaptures": {
-              "1": {
-                "name": "punctuation.definition.tag.begin.html"
-              },
-              "2": {
-                "name": "entity.name.tag.style.html"
-              }
-            },
-            "begin": "(<)(style)\\b(?=[^>]*lang=('less'|\"less\"))(?![^/>]*/>\\s*$)",
-            "endCaptures": {
-              "1": {
-                "name": "punctuation.definition.tag.begin.html"
-              },
-              "2": {
-                "name": "entity.name.tag.style.html"
-              },
-              "3": {
-                "name": "punctuation.definition.tag.end.html"
-              }
-            },
-            "end": "(</)(style)(>)",
-            "patterns": [
-              {
-                "include": "text.html.regular-html#tag-stuff"
-              },
-              {
-                "beginCaptures": {
-                  "1": {
-                    "name": "punctuation.definition.tag.end.html"
-                  }
-                },
-                "begin": "(>)",
-                "end": "(?=</style>)",
-                "patterns": [
-                  {
-                    "include": "source.css.less"
-                  }
-                ],
-                "contentName": "source.css.less"
-              }
-            ]
         }
 	],
 	"repository": {
-        "bracket": {
-            "name": "markup.heading",
-            "begin": "{",
-            "end": "}",
-            "patterns": [{
-                "name": "markup.underline",
-                "match": "#\\b(if|elseif|list|include|as|by)\\b"
-            }, {
-                "name": "keyword.control",
-                "match": "/(if|list)"
-            }, {
-                "name": "keyword.control",
-                "match": "(as|by)"
-            }, {
-                "name": "keyword.operator",
-                "match": "\\s(>|<|>=|<=|[=]{1,3})\\s"
-            }, {
-                "name": "variable.name",
-                "match": "\\$?[a-zA-Z0-9_\\.]+"
-            }, {
-                "name": "string.quoted.double",
-                "begin": "'",
-                "end": "'"
-            }, {
-                "name": "string.quoted.interpolated",
-                "begin": "`",
-                "end": "`",
-                "patterns": [{
-                    "name": "markup.heading",
-                    "begin": "\\${",
-                    "end": "}",
-                    "patterns": [{
-                        "name": "variable.parameter",
-                        "match": "\\w+"
-                    }]
-                }]
-            }, {
-                "name": "keyword.control",
-                "begin": "(\\{)",
-                "end": "(\\})",
-                "beginCaptures": {
-                    "1": {
-                        "name": "keyword.operator"
-                    }
-                },
-                "endCaptures": {
-                    "1": {
-                        "name": "keyword.operator"
-                    }
-                },
-                "patterns":[{
-                    "name": "variable.name",
-                    "match": "[a-zA-Z0-9_\\.]+"
-                }, {
-                    "name": "entity.name.function",
-                    "match": "([a-zA-Z0-9_\\.]+)\\((.*?)\\)"
-                }]
-            }]
-        },
-        "htmlbracket": {
-            "begin": "</?[a-zA-Z]+",
-            "end": "\\s?>",
-            "beginCaptures": {
-                "0" : {
-                    "name": "constant.language"
+        "tag-stuff": {
+            "patterns": [
+                {
+                    "include": "text.html.regular-html#tag-stuff"
                 }
-            },
-            "endCaptures": {
-                "0" : {
-                    "name": "constant.language"
-                }
-            },
-            "patterns": [{
-                "name": "string",
-                "begin": "\"",
-                "end": "\"",
-                "patterns": [{
-                    "name": "keyword.control",
-                    "match": "\\b(each|if|else|set|block|extend|include)\\b"
-                }, {
-                    "name": "keyword.control",
-                    "match": "/(if|each|block)"
-                }, {
-                    "name": "markup.heading",
-                    "match": "{{|}}"
-                }, {
-                    "name": "keyword.operator",
-                    "match": "\\s(>|<|>=|<=|[=]{1,3})\\s"
-                }, {
-                    "name": "support.class",
-                    "match": "\\s(\\?|\\|\\||\\||\\+|:|@|&&)\\s"
-                }, {
-                    "name": "variable.name",
-                    "match": "\\$[a-zA-Z0-9_\\.]+"
-                }, {
-                    "name": "string.quoted.double",
-                    "begin": "'",
-                    "end": "'"
-                }, {
-                    "name": "keyword.operator",
-                    "match": "\\[|\\]"
-                }]
-            }, {
-                "name": "markup.heading",
-                "match": "{{|}}"
-            }, {
-                "name": "keyword.control",
-                "match": "\\b(each|if|else|set|block|extend|include)\\b"
-            }, {
-                "name": "keyword.control",
-                "match": "/(if|each|block)"
-            }, {
-                "name": "keyword.operator",
-                "match": "\\s(>|<|>=|<=|[=]{1,3})\\s"
-            }, {
-                "name": "support.class",
-                "match": "\\s(\\?|\\|\\||\\||\\+|:|@|&&)\\s"
-            }, {
-                "name": "variable.name",
-                "match": "\\$?[a-zA-Z0-9_\\.]+"
-            }, {
-                "name": "string.quoted.double",
-                "begin": "'",
-                "end": "'"
-            }, {
-                "name": "keyword.operator",
-                "match": "\\[|\\]"
-            }]
-        },
-        "comments": {
-            "patterns": [{
-                "name": "comment.line.double-slash",
-                "match": "\/\/[^\n]*"
-            }]
+            ]
         }
 	},
 	"scopeName": "source.regular"
