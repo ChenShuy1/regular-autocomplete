@@ -94,7 +94,15 @@ export function getRegularHtmlMode(): LanguageMode {
                 }
             }
 
-            return doComponentComplete();
+            const ret = doComponentComplete();
+            // 输入包含<，则补全时要删除
+            const hasBracket = /<\w*$/g.test(text);
+            if (hasBracket) {
+                ret.items.forEach(item => {
+                    item.insertText = item.insertText.slice(1);
+                });
+            }
+            return ret;
         },
         onDocumentRemoved() {},
         dispose() {}
