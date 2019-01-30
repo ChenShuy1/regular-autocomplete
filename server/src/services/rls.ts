@@ -21,14 +21,14 @@ export class RLS {
         this.connection.onCompletion(this.onCompletion.bind(this));
         this.connection.onCompletionResolve(this.onCompletionResolve.bind(this));
     }
-    private onCompletion(args): CompletionList {
-        const {
-            textDocument,
-            position
-        } = args;
-        const mode = this.languageModes.getMode('regular-html');
+    private onCompletion({textDocument, position}): CompletionList {
         const doc = this.documentService.getDocument(textDocument.uri)!;
-        return mode.doCompletion(doc, position);
+        const mode = this.languageModes.getModeAtPosition(doc, position);
+        if (mode && mode.doCompletion) {
+            this.connection.console.log(mode.getId());
+            return mode.doCompletion(doc, position);
+        }
+        return NULL_COMPLETION;
     }
     private onCompletionResolve(item: CompletionItem): CompletionList {
         return NULL_COMPLETION;
