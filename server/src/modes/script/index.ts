@@ -6,6 +6,7 @@ import {
     InsertTextFormat
 } from 'vscode-languageserver-types';
 import { NULL_COMPLETION } from "../../data";
+import { getDocumentRegions } from "../embeddedSupport";
 
 export function getScriptMode(): LanguageMode {
     let config: any = {};
@@ -47,7 +48,8 @@ export function getScriptMode(): LanguageMode {
             }
 
             if (trigger === '.' && text.match(/this\.\$refs\.$/g)) {
-                const completionList = getRefs(document.getText());
+                const doc = getDocumentRegions(document).getEmbeddedDocument('regular-html');
+                const completionList = getRefs(doc.getText());
                 if (completionList.items.length) {
                     return completionList;
                 }

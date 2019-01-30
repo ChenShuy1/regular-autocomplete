@@ -25,7 +25,6 @@ export class RLS {
         const doc = this.documentService.getDocument(textDocument.uri)!;
         const mode = this.languageModes.getModeAtPosition(doc, position);
         if (mode && mode.doCompletion) {
-            this.connection.console.log(mode.getId());
             return mode.doCompletion(doc, position);
         }
         return NULL_COMPLETION;

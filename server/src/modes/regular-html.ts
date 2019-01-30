@@ -8,6 +8,7 @@ import {
 import MuiComponentAttr from '../snippets/mui-component-attr';
 import { NULL_COMPLETION } from "../data";
 import { doComponentComplete } from "../snippets/componentComplete";
+import { getDocumentRegions } from "./embeddedSupport";
 
 export function getRegularHtmlMode(): LanguageMode {
     let config: any = {};
@@ -21,7 +22,11 @@ export function getRegularHtmlMode(): LanguageMode {
         doCompletion(document, position): CompletionList {
             // 获取从头到光标的文本
             const offset = document.offsetAt(position);
-            const text = document.getText().slice(0, offset);
+
+            const scriptDoc = getDocumentRegions(document).getEmbeddedDocument('javascript');
+            const htmlDoc = getDocumentRegions(document).getEmbeddedDocument('regular-html');
+
+            const text = htmlDoc.getText().slice(0, offset);
             const trigger = text[text.length - 1];
 
             // get methods
@@ -68,7 +73,7 @@ export function getRegularHtmlMode(): LanguageMode {
             };
 
             if (trigger === '.' && /this\.$/g.test(text)) {
-                const completionList = getMethods(document.getText());
+                const completionList = getMethods(scriptDoc.getText());
                 if (completionList.items.length) {
                     return completionList;
                 }
