@@ -30,18 +30,18 @@ export function getRegularHtmlMode(): LanguageMode {
             const trigger = text[text.length - 1];
 
             // get methods
-            function getMethods(document: string): CompletionList{
-                const completionItems:CompletionItem[] = [];
+            function getMethods(document: string): CompletionList {
+                const completionItems: CompletionItem[] = [];
 
                 // 函数定义正则
                 const funcExp = /(\w+)\(\s*([$\w]*)\s*,*\s*\)\s*{/g;
-                
+
                 let result;
-                while((result = funcExp.exec(document)) !== null) {
+                while ((result = funcExp.exec(document)) !== null) {
                     const funcName = result[1];
                     let params = result[2].split(',');
                     params = params.map((p) => p.trim());
-                    
+
                     // 生命周期函数过滤
                     if (['config', 'init', 'destory'].indexOf(funcName) !== -1) {
                         continue;
@@ -79,7 +79,8 @@ export function getRegularHtmlMode(): LanguageMode {
                 }
             }
 
-            const componentRegex = /<([A-Z][a-zA-Z0-9]*)\b[^<>]*$/;
+            // TODO: 组件的属性补全
+            const componentRegex = /<([A-Z][a-zA-Z0-9]*)\b[^<>]*$/g;
             if (componentRegex.test(text)) {
                 text.match(componentRegex);
                 const componentName = RegExp.$1;
@@ -94,17 +95,18 @@ export function getRegularHtmlMode(): LanguageMode {
                 }
             }
 
-            const ret = doComponentComplete();
-            // 输入包含<，则补全时要删除
-            const hasBracket = /<\w*$/g.test(text);
-            if (hasBracket) {
-                ret.items.forEach(item => {
-                    item.insertText = item.insertText.slice(1);
-                });
-            }
-            return ret;
+            // // TODELETE: 组件补全，不应该有插件来做
+            // const ret = doComponentComplete();
+            // // 输入包含<，则补全时要删除
+            // const hasBracket = /<\w*$/g.test(text);
+            // if (hasBracket) {
+            //     ret.items.forEach(item => {
+            //         item.insertText = item.insertText.slice(1);
+            //     });
+            // }
+            // return ret;
         },
-        onDocumentRemoved() {},
-        dispose() {}
+        onDocumentRemoved() { },
+        dispose() { }
     }
 }
