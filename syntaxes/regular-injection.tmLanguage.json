@@ -4,7 +4,7 @@
   "patterns": [
     {
       "contentName": "source.css.scss",
-      "begin": "(const)\\s*(tpl)\\s*=\\s*(`)",
+      "begin": "(const)\\s*(\\w*[tT]pl)\\s*=\\s*(`)",
       "beginCaptures": {
         "1": {
           "patterns": [
