@@ -1,0 +1,41 @@
+{
+  "fileTypes": ["js", "jsx", "ts", "tsx"],
+  "injectionSelector": "L:source -comment -string",
+  "patterns": [
+    {
+      "contentName": "source.css.scss",
+      "begin": "(const)\\s*(tpl)\\s*=\\s*(`)",
+      "beginCaptures": {
+        "1": {
+          "patterns": [
+            {
+              "include": "source.ts#var-expr"
+            }
+          ]
+        },
+        "2": {
+          "patterns": [
+            {
+              "include": "source.ts#var-single-const"
+            }
+          ]
+        },
+        "3": {
+          "name": "punctuation.definition.string.template.begin.js string.template.js"
+        }
+      },
+      "end": "`",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.template.end.js string.template.js"
+        }
+      },
+      "patterns": [
+        {
+          "include": "text.html.regular-html"
+        }
+      ]
+    }
+  ],
+  "scopeName": "regular-injection"
+}
