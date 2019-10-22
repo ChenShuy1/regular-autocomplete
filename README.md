@@ -10,7 +10,14 @@ Regular插件工具
 - Auto Completion
 
 ## Syntax-highlighting
-支持后缀为.rgl文件的语法高亮
+
+* 支持后缀为.rgl文件的语法高亮
+* 支持内联模板的高亮，不过需要符合特定的格式：
+
+  ```js
+  // 以 `tpl = ` 起始的，其后的 template string 将会应用 regular 模板的高亮 
+  tpl = `template content`
+  ```
 
 ## Snippets
 
