@@ -3,7 +3,7 @@
   "injectionSelector": "L:source -comment -string",
   "patterns": [
     {
-      "contentName": "source.regular.template.comment",
+      "contentName": "string.template.regular.inline.comment",
       "begin": "[=:]\\s*`",
       "beginCaptures": {
         "0": {
@@ -30,11 +30,17 @@
               "include": "text.html.regular-html"
             }
           ]
+        },
+        {
+          "include": "source.ts#template-substitution-element"
+        },
+        {
+          "include": "source.ts#string-character-escape"
         }
       ]
     },
     {
-      "contentName": "source.regular.template.const",
+      "contentName": "string.template.regular.inline.const",
       "begin": "(const)\\s*(\\w*[tT]pl)\\s*=\\s*(`)",
       "beginCaptures": {
         "1": {
