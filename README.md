@@ -10,7 +10,18 @@ Regular插件工具
 - Auto Completion
 
 ## Syntax-highlighting
-支持后缀为.rgl文件的语法高亮
+
+* 支持后缀为.rgl文件的语法高亮
+* 支持内联模板的高亮，不过需要符合特定的格式：
+
+  ```js
+  // 在常量声明表达式中，如果变量名符合正则表达式 `/\w*[tT]pl/` 的规则
+  // 且右值为模板字面量(template literals)，则该字面量中的内容将会应用
+  // regular 的模板语法高亮规则
+  const tpl = `<div></div>`
+  const a_tpl = `<div></div>`
+  const buttonTpl = `<div></div>`
+  ```
 
 ## Snippets
 
