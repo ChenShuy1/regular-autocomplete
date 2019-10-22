@@ -3,7 +3,38 @@
   "injectionSelector": "L:source -comment -string",
   "patterns": [
     {
-      "contentName": "source.css.scss",
+      "contentName": "source.regular.template.comment",
+      "begin": "[=:]\\s*`",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.template.begin.js string.template.js"
+        }
+      },
+      "end": "`",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.template.end.js string.template.js"
+        }
+      },
+      "patterns": [
+        {
+          "begin": "<!--\\s*@regular\\s*-->",
+          "beginCaptures": {
+            "0": {
+              "patterns": [{ "include": "text.html.regular-html" }]
+            }
+          },
+          "end": "(?=`)",
+          "patterns": [
+            {
+              "include": "text.html.regular-html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "contentName": "source.regular.template.const",
       "begin": "(const)\\s*(\\w*[tT]pl)\\s*=\\s*(`)",
       "beginCaptures": {
         "1": {
